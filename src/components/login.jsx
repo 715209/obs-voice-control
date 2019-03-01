@@ -13,26 +13,32 @@ class Login extends Component {
 
     handleSubmit = e => {
         this.props.client.connect(`${this.state.host}:${this.state.port}`, this.state.password);
+
         e.preventDefault();
     };
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    Host:
-                    <input name="host" type="text" value={this.state.host} onChange={this.handleChange} />
-                </label>
-                <label>
-                    Port:
-                    <input name="port" type="text" value={this.state.port} onChange={this.handleChange} />
-                </label>
-                <label>
-                    Password:
-                    <input name="password" type="text" value={this.state.password} onChange={this.handleChange} />
-                </label>
-                <input type="submit" value="Submit" />
-            </form>
+            <div>
+                {this.props.error && <p>{this.props.error}</p>}
+                {this.props.authFail && <p>Failed to authenticate</p>}
+
+                <form onSubmit={this.handleSubmit}>
+                    <label>
+                        Host:
+                        <input name="host" type="text" value={this.state.host} onChange={this.handleChange} />
+                    </label>
+                    <label>
+                        Port:
+                        <input name="port" type="text" value={this.state.port} onChange={this.handleChange} />
+                    </label>
+                    <label>
+                        Password:
+                        <input name="password" type="text" value={this.state.password} onChange={this.handleChange} />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
         );
     }
 }

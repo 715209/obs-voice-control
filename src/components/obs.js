@@ -36,11 +36,8 @@ class OBSwebsocket extends EventEmitter {
         }
     }
 
-    onClose() {
-        console.log("Disconnected from OBS");
-        clearInterval(this.interval);
-        this.ws.removeAllListeners();
-        this.reconnect();
+    onClose(e) {
+        this.emit("error", e);
     }
 
     close() {
@@ -49,17 +46,8 @@ class OBSwebsocket extends EventEmitter {
         }
     }
 
-    reconnect() {
-        console.log(`Trying to reconnect in 5 seconds`);
-
-        setTimeout(() => {
-            console.log("Reconnecting...");
-            this.open();
-        }, 5000);
-    }
-
     onError(e) {
-        console.error(new Error(e));
+        this.emit("error", e);
     }
 
     onMessage(message) {
