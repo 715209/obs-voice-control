@@ -1,14 +1,27 @@
 {
     "name": "obs-voice-control",
     "version": "0.1.0",
+    "author": "Brian Spit",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/715209/obs-voice-control.git"
+    },
+    "bugs": {
+        "url": "https://github.com/715209/obs-voice-control/issues"
+    },
+    "homepage": "https://715209.github.io/obs-voice-control",
     "private": true,
     "dependencies": {
+        "gh-pages": "^2.0.1",
         "react": "^16.8.3",
         "react-dom": "^16.8.3",
         "react-scripts": "2.1.5",
         "sha.js": "^2.4.11"
     },
     "scripts": {
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build",
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
