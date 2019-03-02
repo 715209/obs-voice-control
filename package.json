@@ -10,7 +10,7 @@
     "bugs": {
         "url": "https://github.com/715209/obs-voice-control/issues"
     },
-    "homepage": "https://715209.github.io/obs-voice-control",
+    "homepage": "http://715209.github.io/obs-voice-control",
     "private": true,
     "dependencies": {
         "gh-pages": "^2.0.1",
