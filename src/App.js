@@ -32,9 +32,7 @@ class App extends Component {
     }
 
     render() {
-        {
-            return !this.state.connected ? <Login {...this.state} /> : <Dashboard {...this.state} />;
-        }
+        return !this.state.connected ? <Login {...this.state} /> : <Dashboard {...this.state} />;
     }
 }
 
